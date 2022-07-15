@@ -1,0 +1,7 @@
+1) Adding a feature
+    a) Create any new actor classes that are needed, e.g. Hero
+    b) Create any new action classes that use those actors
+        i) e.g. SteerHeroAction, MoveHeroAction, CollideHeroAction, DrawHeroAction
+        ii) Note, create granular drawing actions like DrawHeroAction but make sure
+            that you actually execute it in the more generic DrawActorsAction class.
+    c) Instantiate the new actors and actions in Program.cs
