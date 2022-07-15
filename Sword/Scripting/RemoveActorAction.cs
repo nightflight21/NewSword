@@ -20,11 +20,20 @@ namespace Sword
         {
             try
             {
-                
+                List<Actor> enemies = scene.GetAllActors("enemies");
+                foreach (Actor actor in enemies)
+                {
+                    int health = actor.GetHealth();
+                    if (health <= 0)
+                    {
+                        enemies.Remove(actor);
+                    }
+                }
             }
+            
             catch (Exception exception)
             {
-                callback.OnError("Couldn't kill actor.", exception);
+                callback.OnError("Couldn't remove actor.", exception);
             }
         }
     }
