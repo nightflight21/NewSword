@@ -36,6 +36,7 @@ namespace Sword
                     actor1.Tint(Color.Red());                                   //player flickers red to indicate damage
                     actor1.SetHealth(actor1.GetHealth() - 1);                   //player takes 1 damage
                     Console.WriteLine("You got hit! Your health is now " + actor1.GetHealth()); //owie
+                    Console.WriteLine("The enemy's health is now " + actor2.GetHealth());
                     if (actor1.GetLeft() > (actor2.GetLeft() + 25))             //if player is to the right of the enemy
                     {
                         actor1.MoveTo(actor2.GetRight() + 25, actor1.GetTop()); //player gets knocked right
