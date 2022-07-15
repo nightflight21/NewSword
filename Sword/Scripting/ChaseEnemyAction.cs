@@ -23,7 +23,16 @@ namespace Sword
             try
             {
                 Actor player = scene.GetFirstActor("player");
-                if(enemy.GetPosition().X < player.GetPosition().X + 200 && enemy.GetPosition().X > player.GetPosition().X - 200){
+                if(enemy.GetPosition().X < player.GetPosition().X + 200 && enemy.GetPosition().X > player.GetPosition().X - 200 && enemy.GetPosition().Y < player.GetPosition().Y + 200 && enemy.GetPosition().Y > player.GetPosition().Y - 200){
+                    if (enemy.GetCenterX() == player.GetCenterX())
+                    {
+                        enemy.MoveTo(player.GetPosition().X, enemy.GetPosition().Y - ((enemy.GetCenterY() - player.GetCenterY())/Math.Abs(enemy.GetCenterY() - player.GetCenterY())));
+                    }
+                    else if (enemy.GetCenterY() == player.GetCenterY())
+                    {
+                        enemy.MoveTo(enemy.GetPosition().X - ((enemy.GetCenterX() - player.GetCenterX())/Math.Abs(enemy.GetCenterX() - player.GetCenterX())), player.GetPosition().Y);
+                    }
+                    else
                     enemy.MoveTo(
                         enemy.GetPosition().X - ((enemy.GetCenterX() - player.GetCenterX())/Math.Abs(enemy.GetCenterX() - player.GetCenterX())), 
                         enemy.GetPosition().Y - ((enemy.GetCenterY() - player.GetCenterY())/Math.Abs(enemy.GetCenterY() - player.GetCenterY())));
