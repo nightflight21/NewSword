@@ -10,9 +10,9 @@ namespace Sword
     /// <summary>
     /// Removes the Actor if their health reaches 0 or below.
     /// </summary>
-    public class RemoveActorAction : Byui.Games.Scripting.Action
+    public class GameOverAction : Byui.Games.Scripting.Action
     {
-        public RemoveActorAction()
+        public GameOverAction()
         {
         }
 
@@ -20,20 +20,18 @@ namespace Sword
         {
             try
             {
-                List<Actor> enemies = scene.GetAllActors("enemies");
-                foreach (Actor actor in enemies)
+                Actor player = scene.GetFirstActor("player");
+                
+                int health = player.GetHealth();
+                if (health <= 0)
                 {
-                    int health = actor.GetHealth();
-                    if (health <= 0)
-                    {
-                        enemies.Remove(actor);
-                    }
+                    player.Tint(Color.Gray());
                 }
             }
             
             catch (Exception exception)
             {
-                callback.OnError("Couldn't remove actor.", exception);
+                callback.OnError("Couldn't Game over.", exception);
             }
         }
     }

@@ -14,12 +14,14 @@ namespace Sword
         private IVideoService _videoService;
         private DrawPlayerAction _drawPlayerAction;
         private DrawEnemyAction _drawEnemyAction;
+        private DrawPlayerAttackAction _drawPlayerAttackAction;
 
         public DrawActorsAction(IServiceFactory serviceFactory)
         {
             _videoService = serviceFactory.GetVideoService();
             _drawPlayerAction = new DrawPlayerAction(serviceFactory);
             _drawEnemyAction = new DrawEnemyAction(serviceFactory);
+            _drawPlayerAttackAction = new DrawPlayerAttackAction(serviceFactory);
         }
 
         public override void Execute(Scene scene, float deltaTime, IActionCallback callback)
@@ -36,6 +38,7 @@ namespace Sword
                 _videoService.DrawGrid(160, Color.Gray(), camera);
                 _drawEnemyAction.Execute(scene, deltaTime, callback);
                 _drawPlayerAction.Execute(scene, deltaTime, callback);
+                _drawPlayerAttackAction.Execute(scene, deltaTime, callback);
                 _videoService.FlushBuffer();
             }
             catch (Exception exception)
