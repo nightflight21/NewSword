@@ -31,7 +31,7 @@ namespace Sword
             
             catch (Exception exception)
             {
-                callback.OnError("Couldn't remove actor.", exception);
+                callback.OnError("Couldn't Game over.", exception);
             }
         }
     }
