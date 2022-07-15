@@ -7,13 +7,13 @@ using Byui.Games.Services;
 namespace Sword
 {
     /// <summary>
-    /// Draws the enemy on the screen.
+    /// Draws the PlayerAttack on the screen.
     /// </summary>
-    public class DrawEnemyAction : Byui.Games.Scripting.Action
+    public class DrawPlayerAttackAction : Byui.Games.Scripting.Action
     {
         private IVideoService _videoService;
 
-        public DrawEnemyAction(IServiceFactory serviceFactory)
+        public DrawPlayerAttackAction(IServiceFactory serviceFactory)
         {
             _videoService = serviceFactory.GetVideoService();
         }
@@ -23,13 +23,13 @@ namespace Sword
             try
             {
                 Camera camera = scene.GetFirstActor<Camera>("camera");
-                List<Actor> enemies = scene.GetAllActors("enemies");
-                //Console.WriteLine(enemies.Count);
-                _videoService.Draw(enemies, camera);
+                List<Actor> sword = scene.GetAllActors("sword");
+                Console.WriteLine(sword.Count);
+                _videoService.Draw(sword,camera);
             }
             catch (Exception exception)
             {
-                callback.OnError("Couldn't draw enemy.", exception);
+                callback.OnError("Couldn't draw PlayerAttack.", exception);
             }
         }
 

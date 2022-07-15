@@ -38,6 +38,7 @@ namespace Sword
 
             // Instantiate the actions that use the actors.
             SteerPlayerAction steerPlayerAction = new SteerPlayerAction(serviceFactory);
+            PlayerAttackAction playerAttackAction = new PlayerAttackAction(serviceFactory);
             MovePlayerAction movePlayerAction = new MovePlayerAction();
             DrawActorsAction drawActorsAction = new DrawActorsAction(serviceFactory);
             SpawnEnemyAction spawnEnemyAction = new SpawnEnemyAction(serviceFactory);
@@ -48,6 +49,7 @@ namespace Sword
             scene.AddActor("camera", camera);
             
             scene.AddAction(Phase.Input, steerPlayerAction);
+            scene.AddAction(Phase.Input, playerAttackAction);
             scene.AddAction(Phase.Update, spawnEnemyAction);
             scene.AddAction(Phase.Update, movePlayerAction);
             scene.AddAction(Phase.Output, drawActorsAction);
