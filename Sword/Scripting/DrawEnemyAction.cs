@@ -24,7 +24,6 @@ namespace Sword
             {
                 Camera camera = scene.GetFirstActor<Camera>("camera");
                 List<Actor> enemies = scene.GetAllActors("enemies");
-                //Console.WriteLine(enemies.Count);
                 _videoService.Draw(enemies, camera);
             }
             catch (Exception exception)
