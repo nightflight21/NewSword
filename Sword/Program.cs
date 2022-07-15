@@ -25,6 +25,7 @@ namespace Sword
             player.SizeTo(50, 50);
             player.MoveTo(1280, 960);
             player.Tint(Color.Blue());
+            player.SetHealth(5);
 
             Actor screen = new Actor();
             screen.SizeTo(640, 480);

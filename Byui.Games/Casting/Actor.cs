@@ -16,6 +16,7 @@ namespace Byui.Games.Casting
         private Vector2 _size = Vector2.Zero;
         private Color _tint = Color.White();
         private Vector2 _velocity = Vector2.Zero;
+        private int _health = 0;
         
         public Actor() { }
 
@@ -112,6 +113,11 @@ namespace Byui.Games.Casting
         public virtual Vector2 GetPosition()
         {
             return _position;
+        }
+
+        public virtual int GetHealth()
+        {
+            return _health;
         }
 
         public virtual Vector2 GetOriginalSize()
@@ -216,6 +222,11 @@ namespace Byui.Games.Casting
         public virtual void ScaleTo(float percent)
         {
             _scale = percent;
+        }
+
+        public virtual void SetHealth(int health)
+        {
+            _health = health;
         }
 
         public virtual void Tint(Color color)

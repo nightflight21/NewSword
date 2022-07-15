@@ -28,6 +28,7 @@ namespace Sword
                     enemy.SizeTo(50, 50);
                     enemy.MoveTo(rnd.Next(0,2560), rnd.Next(0,1920));
                     enemy.Tint(Color.Green());
+                    enemy.SetHealth(2);
                     scene.AddActor("enemies",enemy);
                 }
             }
