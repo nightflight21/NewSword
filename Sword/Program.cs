@@ -46,6 +46,8 @@ namespace Sword
             CollideActorsAction collideActorsAction = new CollideActorsAction(serviceFactory);
             RemoveActorAction removeActorAction = new RemoveActorAction();
             GameOverAction gameOverAction = new GameOverAction();
+            MoveEnemyAction moveEnemyAction = new MoveEnemyAction();
+            ChaseEnemyAction chaseEnemyAction = new ChaseEnemyAction();
 
             // Instantiate a new scene, add the actors and actions.
             Scene scene = new Scene();
@@ -60,6 +62,8 @@ namespace Sword
             scene.AddAction(Phase.Update, gameOverAction);
             scene.AddAction(Phase.Output, drawActorsAction);
             scene.AddAction(Phase.Update, collideActorsAction);
+            scene.AddAction(Phase.Update, moveEnemyAction);
+            scene.AddAction(Phase.Update, chaseEnemyAction);
 
             // Start the game.
             Director director = new Director(serviceFactory);
