@@ -42,6 +42,7 @@ namespace Sword
             MovePlayerAction movePlayerAction = new MovePlayerAction();
             DrawActorsAction drawActorsAction = new DrawActorsAction(serviceFactory);
             SpawnEnemyAction spawnEnemyAction = new SpawnEnemyAction(serviceFactory);
+            CollideActorsAction collideActorsAction = new CollideActorsAction(serviceFactory);
 
             // Instantiate a new scene, add the actors and actions.
             Scene scene = new Scene();
@@ -52,6 +53,7 @@ namespace Sword
             scene.AddAction(Phase.Update, spawnEnemyAction);
             scene.AddAction(Phase.Update, movePlayerAction);
             scene.AddAction(Phase.Output, drawActorsAction);
+            scene.AddAction(Phase.Update, collideActorsAction);
 
             // Start the game.
             Director director = new Director(serviceFactory);
