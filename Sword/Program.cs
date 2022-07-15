@@ -23,7 +23,7 @@ namespace Sword
             // Instantiate the actors that are used in this example.
             Actor player = new Actor();
             player.SizeTo(50, 50);
-            player.MoveTo(640, 480);
+            player.MoveTo(1280, 960);
             player.Tint(Color.Blue());
 
             Actor screen = new Actor();
@@ -31,7 +31,7 @@ namespace Sword
             screen.MoveTo(0, 0);
 
             Actor world = new Actor();
-            world.SizeTo(1280, 960);
+            world.SizeTo(2560, 1920);
             world.MoveTo(0, 0);
 
             Camera camera = new Camera(player, screen, world);

@@ -22,10 +22,11 @@ namespace Sword
         {
             try
             {
-                if(scene.GetAllActors("enemies").Count<1){
+                if(scene.GetAllActors("enemies").Count<5){
+                    Random rnd = new Random();
                     Actor enemy = new Actor();
                     enemy.SizeTo(50, 50);
-                    enemy.MoveTo(640, 480);
+                    enemy.MoveTo(rnd.Next(0,2560), rnd.Next(0,1920));
                     enemy.Tint(Color.Green());
                     scene.AddActor("enemies",enemy);
                 }
