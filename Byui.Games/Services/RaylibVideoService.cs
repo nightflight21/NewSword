@@ -44,7 +44,7 @@ namespace Byui.Games.Services
             Actor focus = camera.GetFocus();
             Actor screen = camera.GetScreen();
 
-            if (actor == focus || actor.Overlaps(screen))
+            //if (actor == focus || actor.Overlaps(screen))
             {
                 Raylib_cs.Color color = GetRaylibColor(actor.GetTint());
                 Vector2 position = actor.GetCenter() - camera.GetPosition();
@@ -79,7 +79,7 @@ namespace Byui.Games.Services
             Actor focus = camera.GetFocus();
             Actor screen = camera.GetScreen();
 
-            if (image == focus || image.Overlaps(screen))
+            //if (image == focus || image.Overlaps(screen))
             {
                 Vector2 position = image.GetCenter() - camera.GetPosition();
                 Vector2 originalSize = image.GetOriginalSize();
@@ -119,7 +119,7 @@ namespace Byui.Games.Services
             Actor focus = camera.GetFocus();
             Actor screen = camera.GetScreen();
 
-            if (label == focus || label.Overlaps(screen))
+            //if (label == focus || label.Overlaps(screen))
             {
                 Raylib_cs.Font font = GetRaylibFont(label.GetFontFile());   
                 string text = label.GetText();

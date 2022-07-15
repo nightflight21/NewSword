@@ -24,7 +24,7 @@ namespace Sword
             Actor player = new Actor();
             player.SizeTo(50, 50);
             player.MoveTo(640, 480);
-            player.Tint(Color.Red());
+            player.Tint(Color.Blue());
 
             Actor screen = new Actor();
             screen.SizeTo(640, 480);
@@ -40,6 +40,7 @@ namespace Sword
             SteerPlayerAction steerPlayerAction = new SteerPlayerAction(serviceFactory);
             MovePlayerAction movePlayerAction = new MovePlayerAction();
             DrawActorsAction drawActorsAction = new DrawActorsAction(serviceFactory);
+            SpawnEnemyAction spawnEnemyAction = new SpawnEnemyAction(serviceFactory);
 
             // Instantiate a new scene, add the actors and actions.
             Scene scene = new Scene();
@@ -47,6 +48,7 @@ namespace Sword
             scene.AddActor("camera", camera);
             
             scene.AddAction(Phase.Input, steerPlayerAction);
+            scene.AddAction(Phase.Update, spawnEnemyAction);
             scene.AddAction(Phase.Update, movePlayerAction);
             scene.AddAction(Phase.Output, drawActorsAction);
 
