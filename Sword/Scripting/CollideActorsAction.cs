@@ -34,6 +34,7 @@ namespace Sword
                     // resolve by changing the actor's color to something else
                     actor1.Tint(Color.Red());
                     actor1.SetHealth(actor1.GetHealth() - 1);
+                    actor2.SetHealth(actor2.GetHealth()-1);
                     Console.WriteLine("You got hit! Your health is now " + actor1.GetHealth());
                     if (actor1.GetLeft() > (actor2.GetLeft() + 25))
                     {
