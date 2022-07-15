@@ -20,13 +20,13 @@ namespace Sword
         {
             try
             {
-                List<Actor> enemies = scene.GetAllActors("enemies");
-                foreach (Actor actor in enemies)
+                List<Actor> enemies = scene.GetAllActors<Actor>("enemies");
+                foreach (Actor enemy in enemies)
                 {
-                    int health = actor.GetHealth();
+                    int health = enemy.GetHealth();
                     if (health <= 0)
                     {
-                        scene.RemoveActor("enemies", actor);
+                        scene.RemoveActor("enemies", enemy);
                     }
                 }
             }
