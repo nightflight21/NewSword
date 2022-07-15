@@ -53,26 +53,6 @@ namespace Sword
                     {
                         actor1.MoveTo(actor1.GetLeft(), actor2.GetTop() - 75);
                     }
-
-                    // if (actor1.GetLeft() < actor2.GetRight())
-                    // {
-                    //     actor1.MoveTo(actor1.GetLeft() + 25, actor1.GetTop());
-                    // }
-                    // else if (actor1.GetRight() > actor2.GetLeft())
-                    // {
-                    //     actor1.MoveTo(actor1.GetRight() - 25, actor1.GetTop());
-                    // }
-                    // else if (actor1.GetTop() < actor2.GetBottom())
-                    // {
-                    //     actor1.MoveTo(actor1.GetLeft(), actor1.GetTop() + 25);
-                    // }
-                    // else if (actor1.GetBottom() > actor2.GetTop())
-                    // {
-                    //     actor1.MoveTo(actor1.GetLeft(), actor1.GetBottom() - 25);
-                    // }
-                    //actor1.MoveTo(0, -10);
-//this.GetLeft() < other.GetRight() && this.GetRight() > other.GetLeft() && this.GetTop() < other.GetBottom() && this.GetBottom() > other.GetTop()
-
                 }
                 else
                 {
