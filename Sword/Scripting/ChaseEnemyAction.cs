@@ -23,12 +23,11 @@ namespace Sword
             try
             {
                 Actor player = scene.GetFirstActor("player");
-                if(enemy.GetPosition().X < player.GetPosition().X + 100){
-                    enemy.MoveTo(enemy.GetPosition().X + 1, enemy.GetPosition().Y);
+                if(enemy.GetPosition().X < player.GetPosition().X + 200 && enemy.GetPosition().X > player.GetPosition().X - 200){
+                    enemy.MoveTo(
+                        enemy.GetPosition().X - ((enemy.GetCenterX() - player.GetCenterX())/Math.Abs(enemy.GetCenterX() - player.GetCenterX())), 
+                        enemy.GetPosition().Y - ((enemy.GetCenterY() - player.GetCenterY())/Math.Abs(enemy.GetCenterY() - player.GetCenterY())));
                 }
-                    else if (enemy.GetPosition().X > player.GetPosition().X - 100){
-                        enemy.MoveTo(enemy.GetPosition().X - 1, enemy.GetPosition().Y);
-                    }
             }
             catch (Exception exception)
             {
