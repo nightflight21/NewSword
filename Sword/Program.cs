@@ -44,6 +44,7 @@ namespace Sword
             SpawnEnemyAction spawnEnemyAction = new SpawnEnemyAction(serviceFactory);
             CollideActorsAction collideActorsAction = new CollideActorsAction(serviceFactory);
             RemoveActorAction removeActorAction = new RemoveActorAction();
+            GameOverAction gameOverAction = new GameOverAction();
 
             // Instantiate a new scene, add the actors and actions.
             Scene scene = new Scene();
@@ -54,6 +55,7 @@ namespace Sword
             scene.AddAction(Phase.Update, spawnEnemyAction);
             scene.AddAction(Phase.Update, movePlayerAction);
             scene.AddAction(Phase.Update, removeActorAction);
+            scene.AddAction(Phase.Update, gameOverAction);
             scene.AddAction(Phase.Output, drawActorsAction);
             scene.AddAction(Phase.Update, collideActorsAction);
 
