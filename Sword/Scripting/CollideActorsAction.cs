@@ -20,17 +20,19 @@ namespace Sword
 
         public override void Execute(Scene scene, float deltaTime, IActionCallback callback)
         {
+        List<Actor> enemies = scene.GetAllActors("enemies");                     //putting all enemies in a group
+        foreach (Actor actor2 in enemies)
             try
             {
                 // get the actors from the cast
                 Actor actor1 = scene.GetFirstActor("player");
-                Actor actor2 = scene.GetFirstActor("enemy");
+                //Actor actor2 = scene.GetFirstActor("enemies");                //gonna use a group instead
                 
                 // detect a collision between the actors.
                 if (actor2.Overlaps(actor1))
                 {
                     // resolve by changing the actor's color to something else
-                    actor2.Tint(Color.Green());
+                    actor2.Tint(Color.Red());
                 }
                 else
                 {
