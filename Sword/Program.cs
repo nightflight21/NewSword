@@ -44,7 +44,7 @@ namespace Sword
             DrawActorsAction drawActorsAction = new DrawActorsAction(serviceFactory);
             SpawnEnemyAction spawnEnemyAction = new SpawnEnemyAction(serviceFactory);
             CollideActorsAction collideActorsAction = new CollideActorsAction(serviceFactory);
-            RemoveActorAction removeActorAction = new RemoveActorAction();
+            RemoveEnemyAction removeEnemyAction = new RemoveEnemyAction();
             GameOverAction gameOverAction = new GameOverAction();
             MoveEnemyAction moveEnemyAction = new MoveEnemyAction();
             ChaseEnemyAction chaseEnemyAction = new ChaseEnemyAction();
@@ -58,7 +58,7 @@ namespace Sword
             scene.AddAction(Phase.Input, playerAttackAction);
             scene.AddAction(Phase.Update, spawnEnemyAction);
             scene.AddAction(Phase.Update, movePlayerAction);
-            scene.AddAction(Phase.Update, removeActorAction);
+            scene.AddAction(Phase.Update, removeEnemyAction);
             scene.AddAction(Phase.Update, gameOverAction);
             scene.AddAction(Phase.Output, drawActorsAction);
             scene.AddAction(Phase.Update, collideActorsAction);
