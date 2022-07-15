@@ -10,9 +10,9 @@ namespace Sword
     /// <summary>
     /// Removes the Actor if their health reaches 0 or below.
     /// </summary>
-    public class RemoveActorAction : Byui.Games.Scripting.Action
+    public class RemoveEnemyAction : Byui.Games.Scripting.Action
     {
-        public RemoveActorAction()
+        public RemoveEnemyAction()
         {
         }
 
@@ -26,7 +26,7 @@ namespace Sword
                     int health = actor.GetHealth();
                     if (health <= 0)
                     {
-                        enemies.Remove(actor);
+                        scene.RemoveActor("enemies", actor);
                     }
                 }
             }
