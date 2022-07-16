@@ -27,6 +27,10 @@ namespace Sword
                 {
                     player.Tint(Color.Gray());
                 }
+                else
+                {
+                    player.Tint(Color.Blue());
+                }
             }
             
             catch (Exception exception)

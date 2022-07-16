@@ -100,6 +100,11 @@ namespace Byui.Games.Casting
             return _position.Y + (_size.Y / 2);
         }
 
+        public virtual Color GetColor()
+        {
+            return _tint;
+        }
+
         public virtual float GetHeight()
         {
             return _size.Y;

@@ -25,9 +25,15 @@ namespace Sword
             try
             {
                 // get the actors from the cast
+<<<<<<< HEAD
                 Actor player = scene.GetFirstActor("player");                   //grabs the player
                 //Actor enemy = scene.GetFirstActor("enemies");                //gonna use a group instead
                 Actor sword = scene.GetFirstActor("sword");                     //grabs the sword
+=======
+                Actor actor1 = scene.GetFirstActor("player");                   //grabs the player
+                Color current = actor1.GetColor();
+                //Actor actor2 = scene.GetFirstActor("enemies");                //gonna use a group instead
+>>>>>>> 95f7c3601e4dd0b43741e3270678744d12c47167
                 
                 // detect a collision between the actors.
                 if (enemy.Overlaps(player))                                    //if the player and enemy over lap
@@ -58,6 +64,7 @@ namespace Sword
                 else
                 {
                     // otherwise, just make it the original color
+<<<<<<< HEAD
                     player.Tint(Color.Blue());
                 }
                 // detect a collision between the actors.
@@ -83,6 +90,9 @@ namespace Sword
                     {
                         enemy.MoveTo(enemy.GetLeft(), player.GetTop() - 125);
                     }
+=======
+                    actor1.Tint(current);
+>>>>>>> 95f7c3601e4dd0b43741e3270678744d12c47167
                 }
             }
             catch (Exception exception)
