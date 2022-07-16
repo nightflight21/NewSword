@@ -27,11 +27,15 @@ namespace Sword
                 {
                     player.Tint(Color.Gray());
                 }
+                else
+                {
+                    player.Tint(Color.Blue());
+                }
             }
             
             catch (Exception exception)
             {
-                callback.OnError("Couldn't remove actor.", exception);
+                callback.OnError("Couldn't Game over.", exception);
             }
         }
     }
