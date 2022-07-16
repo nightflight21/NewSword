@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Byui.Games.Casting;
 using Byui.Games.Scripting;
 using Byui.Games.Services;
+using Sword.Scenes.Over;
+using Sword.Scenes.Game;
 
 
 namespace Sword
@@ -12,8 +14,10 @@ namespace Sword
     /// </summary>
     public class GameOverAction : Byui.Games.Scripting.Action
     {
-        public GameOverAction()
+        private SceneLoader _overSceneLoader;
+        public GameOverAction(IServiceFactory serviceFactory)
         {
+            _overSceneLoader = new OverSceneLoader(serviceFactory);
         }
 
         public override void Execute(Scene scene, float deltaTime, IActionCallback callback)
@@ -26,6 +30,7 @@ namespace Sword
                 if (health <= 0)
                 {
                     player.Tint(Color.Gray());
+                    _overSceneLoader.Load(scene);
                 }
                 else
                 {
