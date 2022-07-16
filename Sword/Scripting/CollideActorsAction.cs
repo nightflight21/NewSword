@@ -25,9 +25,9 @@ namespace Sword
             try
             {
                 // get the actors from the cast
-                Actor actor1 = scene.GetFirstActor("player");                   //grabs the player
-                Color current = actor1.GetColor();
-                //Actor actor2 = scene.GetFirstActor("enemies");                //gonna use a group instead
+                Actor player = scene.GetFirstActor("player");                   //grabs the player
+                //Actor enemy = scene.GetFirstActor("enemies");                //gonna use a group instead
+                Actor sword = scene.GetFirstActor("sword");                     //grabs the sword
                 
                 // detect a collision between the actors.
                 if (actor2.Overlaps(actor1))                                    //if the player and enemy over lap
