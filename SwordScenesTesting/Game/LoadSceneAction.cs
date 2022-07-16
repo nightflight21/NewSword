@@ -3,9 +3,9 @@ using System.Diagnostics;
 using Byui.Games.Casting;
 using Byui.Games.Scripting;
 using Byui.Games.Services;
-using Example.Scenes.Over;
+using Sword.Scenes.Over;
 
-namespace Example.Scenes.Game
+namespace Sword.Scenes.Game
 {
     /// <summary>
     /// Loads the next scene after five seconds have passed.

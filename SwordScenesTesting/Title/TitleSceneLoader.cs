@@ -2,10 +2,11 @@ using System;
 using Byui.Games.Casting;
 using Byui.Games.Scripting;
 using Byui.Games.Services;
-using Example.Scenes.Shared;
+using Sword.Scenes.Shared;
+using Sword;
 
 
-namespace Example.Scenes.Title
+namespace Sword.Scenes.Title
 {
     /// <summary>
     /// Loads the actors and actions required for the title scene.
