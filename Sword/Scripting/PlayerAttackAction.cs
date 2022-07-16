@@ -34,7 +34,7 @@ namespace Sword
                     directionY = -SwordSide;
                     AddSword(scene,50, 30,directionX,directionY);
                 }
-                else if (_keyboardService.IsKeyDown(KeyboardKey.K))
+                if (_keyboardService.IsKeyDown(KeyboardKey.K))
                 {
                     directionY = SwordSide;
                     AddSword(scene,50, 30,directionX,directionY+20);
@@ -46,12 +46,12 @@ namespace Sword
                     directionX = -SwordSide;
                     AddSword(scene,30, 50,directionX,directionY);
                 }
-                else if (_keyboardService.IsKeyDown(KeyboardKey.L))
+                if (_keyboardService.IsKeyDown(KeyboardKey.L))
                 {
                     directionX = SwordSide;
                     AddSword(scene,30, 50,directionX+20,directionY);
                 }
-                else if(scene.GetAllActors("sword").Count >= 1){
+                if(scene.GetAllActors("sword").Count >= 1){
                     scene.RemoveActor("sword", _sword);
                 }
             }
