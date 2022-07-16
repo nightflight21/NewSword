@@ -4,7 +4,7 @@ using Byui.Games.Scripting;
 using Byui.Games.Services;
 
 
-namespace Sword
+namespace Sword.Scenes.Game
 {
     /// <summary>
     /// Draws the actors on the screen.

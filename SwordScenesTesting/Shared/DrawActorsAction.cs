@@ -4,7 +4,7 @@ using Byui.Games.Scripting;
 using Byui.Games.Services;
 
 
-namespace Example.Scenes.Shared
+namespace Sword.Scenes.Shared
 {
     /// <summary>
     /// A draw actors action that can be used by all the scenes in the game.

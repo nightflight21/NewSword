@@ -2,10 +2,10 @@ using System;
 using Byui.Games.Casting;
 using Byui.Games.Scripting;
 using Byui.Games.Services;
-using Example.Scenes.Shared;
+using Sword.Scenes.Shared;
 
 
-namespace Example.Scenes.Help
+namespace Sword.Scenes.Help
 {
     /// <summary>
     /// Loads the actors and actions required for the help scene.

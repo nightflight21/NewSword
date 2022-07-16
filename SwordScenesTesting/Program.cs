@@ -2,10 +2,10 @@
 using Byui.Games.Directing;
 using Byui.Games.Scripting;
 using Byui.Games.Services;
-using Example.Scenes.Title;
+using Sword.Scenes.Title;
 
 
-namespace Example.Scenes
+namespace Sword
 {
     /// <summary>
     /// The entry point for the program.

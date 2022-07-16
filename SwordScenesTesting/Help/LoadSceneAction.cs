@@ -2,11 +2,11 @@ using System;
 using Byui.Games.Casting;
 using Byui.Games.Scripting;
 using Byui.Games.Services;
-using Example.Scenes;
-using Example.Scenes.Title;
+using Sword.Scenes;
+using Sword.Scenes.Title;
 
 
-namespace Example.Scenes.Help
+namespace Sword.Scenes.Help
 {
     /// <summary>
     /// Loads the next scene when the corresponding key is pressed.

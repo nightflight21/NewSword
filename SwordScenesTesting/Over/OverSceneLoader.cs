@@ -2,10 +2,10 @@ using System;
 using Byui.Games.Casting;
 using Byui.Games.Scripting;
 using Byui.Games.Services;
-using Example.Scenes.Shared;
+using Sword.Scenes.Shared;
 
 
-namespace Example.Scenes.Over
+namespace Sword.Scenes.Over
 {
     /// <summary>
     /// Loads the actors and actions required for the game over scene.
