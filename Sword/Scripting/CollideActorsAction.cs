@@ -58,7 +58,6 @@ namespace Sword
                 else
                 {
                     // otherwise, just make it the original color
-<<<<<<< HEAD
                     player.Tint(Color.Blue());
                 }
                 // detect a collision between the actors.
@@ -84,9 +83,6 @@ namespace Sword
                     {
                         enemy.MoveTo(enemy.GetLeft(), player.GetTop() - 125);
                     }
-=======
-                    actor1.Tint(current);
->>>>>>> 95f7c3601e4dd0b43741e3270678744d12c47167
                 }
             }
             catch (Exception exception)
