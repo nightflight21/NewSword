@@ -84,6 +84,11 @@ namespace Sword
                         enemy.MoveTo(enemy.GetLeft(), player.GetTop() - 125);
                     }
                 }
+                else
+                {
+                    // otherwise, just make it the original color
+                    enemy.Tint(Color.Green());
+                }
             }
             catch (Exception exception)
             {
