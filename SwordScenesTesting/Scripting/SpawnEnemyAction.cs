@@ -23,21 +23,10 @@ namespace Sword
             try
             {
                 if(scene.GetAllActors("enemies").Count<5){
-                    Actor player = scene.GetFirstActor("player");
                     Random rnd = new Random();
                     Actor enemy = new Actor();
                     enemy.SizeTo(50, 50);
-                    float x = rnd.Next(0,2560);
-                    float y = rnd.Next(0,1920);
-                    if (x <= player.GetCenterX() && x > (player.GetCenterX() - 100))
-                    {x = (player.GetCenterX()-100);}
-                    else if (x > player.GetCenterX() && x < player.GetCenterX() + 100)
-                    {x = player.GetCenterX() + 100;}
-                    if (y <= player.GetCenterY() && y > player.GetCenterY() - 100)
-                    {y = player.GetCenterY()-100;}
-                    else if (y > player.GetCenterY() && y < player.GetCenterY() + 100)
-                    {y = player.GetCenterY() + 100;}
-                    enemy.MoveTo(x, y);
+                    enemy.MoveTo(rnd.Next(0,2560), rnd.Next(0,1920));
                     enemy.Tint(Color.Green());
                     enemy.SetHealth(2);
                     scene.AddActor("enemies",enemy);
