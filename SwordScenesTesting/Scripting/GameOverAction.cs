@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Byui.Games.Casting;
 using Byui.Games.Scripting;
 using Byui.Games.Services;
+using Sword.Scenes.Over;
 
 
 namespace Sword
@@ -26,6 +27,7 @@ namespace Sword
                 if (health <= 0)
                 {
                     player.Tint(Color.Gray());
+
                 }
                 else
                 {
