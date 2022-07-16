@@ -22,7 +22,7 @@ namespace Sword.Scenes.Title
 
             // Create the actors that participate in the scene.
             Label title = new Label();
-            title.Display("TITLE SCENE");
+            title.Display("SWORD");
             title.MoveTo(320, 200);
             title.Align(Label.Center);
 

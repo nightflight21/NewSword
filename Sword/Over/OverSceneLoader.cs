@@ -21,7 +21,7 @@ namespace Sword.Scenes.Over
 
             // Create the actors that participate in the scene.
             Label title = new Label();
-            title.Display("OVER SCENE");
+            title.Display("GAME OVER");
             title.MoveTo(320, 200);
             title.Align(Label.Center);
 

@@ -21,7 +21,7 @@ namespace Sword.Scenes.Help
 
             // Create the actors that participate in the scene.
             Label title = new Label();
-            title.Display("HELP SCENE");
+            title.Display("WASD to move, IJKL to attack");
             title.MoveTo(320, 200);
             title.Align(Label.Center);
 
