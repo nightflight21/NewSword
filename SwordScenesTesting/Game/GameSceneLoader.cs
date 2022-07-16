@@ -19,7 +19,7 @@ namespace Sword.Scenes.Game
         {
             // Instantiate a service factory for other objects to use.
             IServiceFactory serviceFactory = new RaylibServiceFactory();
-            
+
             // Instantiate the actors that are used in this example.
             Actor player = new Actor();
             player.SizeTo(50, 50);
@@ -45,7 +45,7 @@ namespace Sword.Scenes.Game
             SpawnEnemyAction spawnEnemyAction = new SpawnEnemyAction(serviceFactory);
             CollideActorsAction collideActorsAction = new CollideActorsAction(serviceFactory);
             RemoveEnemyAction removeEnemyAction = new RemoveEnemyAction();
-            GameOverAction gameOverAction = new GameOverAction();
+            GameOverAction gameOverAction = new GameOverAction(serviceFactory);
             MoveEnemyAction moveEnemyAction = new MoveEnemyAction();
             ChaseEnemyAction chaseEnemyAction = new ChaseEnemyAction();
 
