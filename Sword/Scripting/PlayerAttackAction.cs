@@ -13,6 +13,7 @@ namespace Sword
     {
         private IKeyboardService _keyboardService;
         private Actor _sword = new Actor();
+        private float _time = 0;
         
         public PlayerAttackAction(IServiceFactory serviceFactory)
         {
@@ -52,7 +53,14 @@ namespace Sword
                     AddSword(scene,30, 50,directionX+20,directionY);
                 }
                 if(scene.GetAllActors("sword").Count >= 1){
-                    scene.RemoveActor("sword", _sword);
+                    _time += deltaTime;
+                    scene.GetFirstActor("sword").Steer(scene.GetFirstActor("player").GetVelocity());
+                    scene.GetFirstActor("sword").Move();
+                    if(_time >= .2){
+                        scene.RemoveActor("sword", _sword);
+                        //Enable();
+                        _time = 0;
+                    }
                 }
             }
             catch (Exception exception)
@@ -68,6 +76,7 @@ namespace Sword
                 _sword.MoveTo(player.GetCenterX() + X-25, player.GetCenterY() + Y-25);
                 _sword.Tint(Color.Red());
                 scene.AddActor("sword",_sword);
+                //Disable();
             }
         }
     }
