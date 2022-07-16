@@ -39,8 +39,8 @@ namespace Sword
 
             // Instantiate the actions that use the actors.
             SteerPlayerAction steerPlayerAction = new SteerPlayerAction(serviceFactory);
-            PlayerAttackAction playerAttackAction = new PlayerAttackAction(serviceFactory);
             MovePlayerAction movePlayerAction = new MovePlayerAction();
+            PlayerAttackAction playerAttackAction = new PlayerAttackAction(serviceFactory);
             DrawActorsAction drawActorsAction = new DrawActorsAction(serviceFactory);
             SpawnEnemyAction spawnEnemyAction = new SpawnEnemyAction(serviceFactory);
             CollideActorsAction collideActorsAction = new CollideActorsAction(serviceFactory);
