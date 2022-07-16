@@ -14,6 +14,8 @@ namespace Sword
         private IKeyboardService _keyboardService;
         private Actor _sword = new Actor();
         private float _time = 0;
+        private bool _attacked = false;
+        private KeyboardKey _keyDown = KeyboardKey.B;
         
         public PlayerAttackAction(IServiceFactory serviceFactory)
         {
@@ -29,28 +31,41 @@ namespace Sword
                 int directionX = 0;
                 int directionY = 0;
 
-                // detect vertical or y-axis direction
-                if (_keyboardService.IsKeyDown(KeyboardKey.I))
-                {
-                    directionY = -SwordSide;
-                    AddSword(scene,50, 30,directionX,directionY);
+                if(_keyboardService.IsKeyReleased(_keyDown)){
+                    _attacked = false;
                 }
-                if (_keyboardService.IsKeyDown(KeyboardKey.K))
-                {
-                    directionY = SwordSide;
-                    AddSword(scene,50, 30,directionX,directionY+20);
-                }
+                if(!_attacked){
+                    // detect vertical or y-axis direction
+                    if (_keyboardService.IsKeyDown(KeyboardKey.I))
+                    {
+                        directionY = -SwordSide;
+                        AddSword(scene,50, 30,directionX,directionY);
+                        _attacked = true;
+                        _keyDown = KeyboardKey.I;
+                    }
+                    if (_keyboardService.IsKeyDown(KeyboardKey.K))
+                    {
+                        directionY = SwordSide;
+                        AddSword(scene,50, 30,directionX,directionY+20);
+                        _attacked = true;
+                        _keyDown = KeyboardKey.K;
+                    }
 
-                // detect horizontal or x-axis direction
-                if (_keyboardService.IsKeyDown(KeyboardKey.J))
-                {
-                    directionX = -SwordSide;
-                    AddSword(scene,30, 50,directionX,directionY);
-                }
-                if (_keyboardService.IsKeyDown(KeyboardKey.L))
-                {
-                    directionX = SwordSide;
-                    AddSword(scene,30, 50,directionX+20,directionY);
+                    // detect horizontal or x-axis direction
+                    if (_keyboardService.IsKeyDown(KeyboardKey.J))
+                    {
+                        directionX = -SwordSide;
+                        AddSword(scene,30, 50,directionX,directionY);
+                        _attacked = true;
+                        _keyDown = KeyboardKey.J;
+                    }
+                    if (_keyboardService.IsKeyDown(KeyboardKey.L))
+                    {
+                        directionX = SwordSide;
+                        AddSword(scene,30, 50,directionX+20,directionY);
+                        _attacked = true;
+                        _keyDown = KeyboardKey.L;
+                    }
                 }
                 if(scene.GetAllActors("sword").Count >= 1){
                     _time += deltaTime;
