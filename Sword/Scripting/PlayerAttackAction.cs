@@ -65,10 +65,6 @@ namespace Sword
             if(scene.GetAllActors("sword").Count<1){
                 Actor player = scene.GetFirstActor("player");
                 _sword.SizeTo(width, height);
-<<<<<<< HEAD
-                Console.WriteLine("here");
-=======
->>>>>>> 6d952b75c70b2f4ff90109df6c563f5227f7f94e
                 _sword.MoveTo(player.GetCenterX() + X-25, player.GetCenterY() + Y-25);
                 _sword.Tint(Color.Red());
                 scene.AddActor("sword",_sword);
