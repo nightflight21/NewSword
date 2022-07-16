@@ -21,7 +21,7 @@ namespace Sword
         public override void Execute(Scene scene, float deltaTime, IActionCallback callback)
         {
         List<Actor> enemies = scene.GetAllActors("enemies");                    //putting all enemies in a group
-        foreach (Actor enemy in enemies)                                       //for each enemy in the group
+        foreach (Actor enemy in enemies)                                        //for each enemy in the group
             try
             {
                 // get the actors from the cast
@@ -30,23 +30,20 @@ namespace Sword
                 Actor sword = scene.GetFirstActor("sword");                     //grabs the sword
                 
                 // detect a collision between the actors.
-                if (enemy.Overlaps(player))                                    //if the player and enemy over lap
+                if (enemy.Overlaps(player))                                     //if the player and enemy over lap
                 {
-                    // resolve by changing the actor's color to something else
-                    //enemy.SetHealth(enemy.GetHealth() - 1);                 //subtract 1 from the enemy's health
                     player.Tint(Color.Red());                                   //player flickers red to indicate damage
                     player.SetHealth(player.GetHealth() - 1);                   //player takes 1 damage
                     Console.WriteLine("You got hit! Your health is now " + player.GetHealth()); //owie
-                    //Console.WriteLine("The enemy's health is now " + enemy.GetHealth());
-                    if (player.GetLeft() > (enemy.GetLeft() + 25))             //if player is to the right of the enemy
+                    if (player.GetLeft() > (enemy.GetLeft() + 25))              //if player is to the right of the enemy
                     {
-                        player.MoveTo(enemy.GetRight() + 25, player.GetTop()); //player gets knocked right
+                        player.MoveTo(enemy.GetRight() + 25, player.GetTop());  //player gets knocked right
                     }
-                    else if (player.GetRight() < (enemy.GetLeft() + 25))       //if the player is left of the enemy,
+                    else if (player.GetRight() < (enemy.GetLeft() + 25))        //if the player is left of the enemy,
                     {
-                        player.MoveTo(enemy.GetLeft() - 75, player.GetTop());  //player gets knocked left
+                        player.MoveTo(enemy.GetLeft() - 75, player.GetTop());   //player gets knocked left
                     }
-                    if (player.GetTop() > (enemy.GetBottom() - 25))            //you get the idea lol
+                    if (player.GetTop() > (enemy.GetBottom() - 25))             //you get the idea lol
                     {
                         player.MoveTo(player.GetLeft(), enemy.GetBottom() + 25);
                     }
@@ -62,26 +59,26 @@ namespace Sword
                 }
                 // detect a collision between the actors.
                 if(scene.GetAllActors("sword").Count >= 1)
-                if (sword.Overlaps(enemy))                                    //if the player and enemy over lap
+                if (sword.Overlaps(enemy))                                      //if the player and enemy over lap
                 {
                     enemy.SetHealth(enemy.GetHealth() - 1);                     //subtract 1 from the enemy's health
-                    enemy.Tint(Color.Red());                                   //player flickers red to indicate damage
+                    enemy.Tint(Color.Red());                                    //player flickers red to indicate damage
                     Console.WriteLine("The enemy's health is now " + enemy.GetHealth());
-                    if (enemy.GetLeft() > (player.GetLeft() + 25))             //if enemy is to the right of the player
+                    if (enemy.GetLeft() > (player.GetLeft() + 25))              //if enemy is to the right of the player
                     {
-                        enemy.MoveTo(player.GetRight() + 75, enemy.GetTop()); //enemy gets knocked right
+                        enemy.MoveTo(player.GetRight() + 75, enemy.GetTop());   //enemy gets knocked right
                     }
-                    else if (enemy.GetRight() < (player.GetLeft() + 25))       //if the enemy is left of the player,
+                    else if (enemy.GetRight() < (player.GetLeft() + 25))        //if the enemy is left of the player,
                     {
-                        enemy.MoveTo(player.GetLeft() - 125, enemy.GetTop());  //enemy gets knocked left
+                        enemy.MoveTo(player.GetLeft() - 125, enemy.GetTop());   //enemy gets knocked left
                     }
-                    if (enemy.GetTop() > (player.GetBottom() - 25))            //you get the idea lol
+                    if (enemy.GetTop() > (player.GetBottom() - 25))             //you get the idea lol
                     {
-                        enemy.MoveTo(enemy.GetLeft(), player.GetBottom() + 75);
+                        enemy.MoveTo(enemy.GetLeft(), player.GetBottom() + 75); //enemy gets knocked down
                     }
-                    else if (enemy.GetBottom() < (player.GetTop() + 25))
+                    else if (enemy.GetBottom() < (player.GetTop() + 25))        //
                     {
-                        enemy.MoveTo(enemy.GetLeft(), player.GetTop() - 125);
+                        enemy.MoveTo(enemy.GetLeft(), player.GetTop() - 125);   //enemy gets knocked up
                     }
                 }
                 else
