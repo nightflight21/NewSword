@@ -38,7 +38,7 @@ namespace Sword
                 else if (_keyboardService.IsKeyDown(KeyboardKey.K))
                 {
                     directionY = SwordSide;
-                    AddSword(scene,50, 30,directionX,directionY);
+                    AddSword(scene,50, 30,directionX,directionY+20);
                 }
 
                 // detect horizontal or x-axis direction
@@ -50,10 +50,10 @@ namespace Sword
                 else if (_keyboardService.IsKeyDown(KeyboardKey.L))
                 {
                     directionX = SwordSide;
-                    AddSword(scene,30, 50,directionX,directionY);
+                    AddSword(scene,30, 50,directionX+20,directionY);
                 }
                 else if(scene.GetAllActors("sword").Count >= 1){
-                    //scene.RemoveActor("sword", _sword);
+                    scene.RemoveActor("sword", _sword);
                 }
             }
             catch (Exception exception)
@@ -64,11 +64,10 @@ namespace Sword
 
         private void AddSword(Scene scene,int width, int height,int X,int Y){
             if(scene.GetAllActors("sword").Count<1){
-                Actor camera = scene.GetFirstActor("camera");
-                Vector2 position = camera.GetPosition();
+                Actor player = scene.GetFirstActor("player");
                 _sword.SizeTo(width, height);
-                Console.WriteLine(position.X);
-                _sword.MoveTo(position.X + X, position.Y + Y);
+                Console.WriteLine("here");
+                _sword.MoveTo(player.GetCenterX() + X-25, player.GetCenterY() + Y-25);
                 _sword.Tint(Color.Red());
                 scene.AddActor("sword",_sword);
             }
