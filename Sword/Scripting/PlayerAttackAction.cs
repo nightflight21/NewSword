@@ -1,4 +1,5 @@
 using System;
+using System.Numerics;
 using Byui.Games.Casting;
 using Byui.Games.Scripting;
 using Byui.Games.Services;
@@ -37,11 +38,11 @@ namespace Sword
                 else if (_keyboardService.IsKeyDown(KeyboardKey.K))
                 {
                     directionY = SwordSide;
-                    AddSword(scene,50, 30,directionX,directionY+20);
+                    AddSword(scene,50, 30,directionX,directionY);
                 }
 
                 // detect horizontal or x-axis direction
-                if (_keyboardService.IsKeyDown(KeyboardKey.J))
+                else if (_keyboardService.IsKeyDown(KeyboardKey.J))
                 {
                     directionX = -SwordSide;
                     AddSword(scene,30, 50,directionX,directionY);
@@ -49,10 +50,10 @@ namespace Sword
                 else if (_keyboardService.IsKeyDown(KeyboardKey.L))
                 {
                     directionX = SwordSide;
-                    AddSword(scene,30, 50,directionX+20,directionY);
+                    AddSword(scene,30, 50,directionX,directionY);
                 }
                 else if(scene.GetAllActors("sword").Count >= 1){
-                    scene.RemoveActor("sword", _sword);
+                    //scene.RemoveActor("sword", _sword);
                 }
             }
             catch (Exception exception)
@@ -63,9 +64,11 @@ namespace Sword
 
         private void AddSword(Scene scene,int width, int height,int X,int Y){
             if(scene.GetAllActors("sword").Count<1){
-                Actor player = scene.GetFirstActor("player");
+                Actor camera = scene.GetFirstActor("camera");
+                Vector2 position = camera.GetPosition();
                 _sword.SizeTo(width, height);
-                _sword.MoveTo(player.GetCenterX() + X-25, player.GetCenterY() + Y-25);
+                Console.WriteLine(position.X);
+                _sword.MoveTo(position.X + X, position.Y + Y);
                 _sword.Tint(Color.Red());
                 scene.AddActor("sword",_sword);
             }
