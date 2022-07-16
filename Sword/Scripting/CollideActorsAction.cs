@@ -26,6 +26,7 @@ namespace Sword
             {
                 // get the actors from the cast
                 Actor player = scene.GetFirstActor("player");                   //grabs the player
+                Color current = player.GetColor();
                 //Actor enemy = scene.GetFirstActor("enemies");                 //gonna use a group instead
                 Actor sword = scene.GetFirstActor("sword");                     //grabs the sword
                 
@@ -58,7 +59,7 @@ namespace Sword
                 else
                 {
                     // otherwise, just make it the original color
-                    player.Tint(Color.Blue());
+                    player.Tint(current);
                 }
                 // detect a collision between the actors.
                 if(scene.GetAllActors("sword").Count >= 1)
@@ -83,6 +84,9 @@ namespace Sword
                     {
                         enemy.MoveTo(enemy.GetLeft(), player.GetTop() - 125);
                     }
+                }
+                else{
+                    enemy.Tint(Color.Green());
                 }
             }
             catch (Exception exception)
