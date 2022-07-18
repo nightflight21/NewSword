@@ -34,7 +34,7 @@ namespace Sword
                 }
                 else
                 {
-                    player.Tint(Color.Blue());
+                    //player.Tint(Color.Blue());
                 }
             }
             

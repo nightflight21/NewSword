@@ -20,12 +20,25 @@ namespace Sword.Scenes.Game
             // Instantiate a service factory for other objects to use.
             IServiceFactory serviceFactory = new RaylibServiceFactory();
 
+            float durationInSeconds = 0.3f; 
+            int framesPerSecond = 60; 
+
+            string[] filePaths = new string[6];
+            filePaths[0] = "Assets/sprites/characters/tile000.png";
+            filePaths[1] = "Assets/sprites/characters/tile001.png";
+            filePaths[2] = "Assets/sprites/characters/tile002.png";
+            filePaths[3] = "Assets/sprites/characters/tile003.png";
+            filePaths[4] = "Assets/sprites/characters/tile004.png";
+            filePaths[5] = "Assets/sprites/characters/tile005.png";
+
             // Instantiate the actors that are used in this example.
-            Actor player = new Actor();
+            //Image playerimage = new Image();
+            Image player = new Image();
             player.SizeTo(50, 50);
             player.MoveTo(1280, 960);
-            player.Tint(Color.Blue());
+            //player.Tint(Color.Green());
             player.SetHealth(5);
+            player.Animate(filePaths, durationInSeconds, framesPerSecond);
 
             Actor screen = new Actor();
             screen.SizeTo(640, 480);
@@ -38,6 +51,7 @@ namespace Sword.Scenes.Game
             Camera camera = new Camera(player, screen, world);
 
             // Instantiate the actions that use the actors.
+            //DrawImageAction drawImageAction = new DrawImageAction(serviceFactory);
             SteerPlayerAction steerPlayerAction = new SteerPlayerAction(serviceFactory);
             PlayerAttackAction playerAttackAction = new PlayerAttackAction(serviceFactory);
             MovePlayerAction movePlayerAction = new MovePlayerAction();
@@ -64,6 +78,7 @@ namespace Sword.Scenes.Game
             scene.AddAction(Phase.Update, collideActorsAction);
             scene.AddAction(Phase.Update, moveEnemyAction);
             scene.AddAction(Phase.Update, chaseEnemyAction);
+            //scene.AddAction(Phase.Output, drawImageAction);
         }
     }
 }
